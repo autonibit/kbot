@@ -22,9 +22,9 @@ var (
 
 // kbotCmd represents the kbot command
 var kbotCmd = &cobra.Command{
-	Use:   "kbot",
+	Use:     "kbot",
 	Aliases: []string{"start"},
-	Short: "A brief description of your command",
+	Short:   "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
 
@@ -47,7 +47,7 @@ to quickly create a Cobra application.`,
 		kbot.Handle(telebot.OnText, func(m telebot.Context) error {
 			log.Print(m.Message().Payload, m.Text())
 
-			return m.Send(fmt.Sprintf("Hi "+ m.Sender().FirstName +", I'm Kbot %s! I will help you to generate a strong password. Just type: /generate", appVersion))
+			return m.Send(fmt.Sprintf("Hi "+m.Sender().FirstName+", I'm Kbot %s! I will help you to generate a strong password. Just type: /generate", appVersion))
 		})
 
 		kbot.Handle("/generate", func(m telebot.Context) error {
@@ -56,11 +56,11 @@ to quickly create a Cobra application.`,
 
 			if payload == "" {
 				// log.Print(generatePassword(10))
-				return m.Send(generatePassword(10));
+				return m.Send(generatePassword(10))
 			} else {
 				length, err := strconv.Atoi(payload)
 
-				if err != nil{
+				if err != nil {
 					//executes if there is any error
 					log.Println(err)
 					password = "Invalid password length"
@@ -75,7 +75,7 @@ to quickly create a Cobra application.`,
 				}
 			}
 
-			return m.Send(password);
+			return m.Send(password)
 		})
 
 		kbot.Handle("/help", func(m telebot.Context) error {
@@ -90,15 +90,15 @@ const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#
 
 func generatePassword(length int) string {
 	src := rand.NewSource(time.Now().UnixNano())
-  	rand := rand.New(src)
+	rand := rand.New(src)
 	var password []byte
-	
+
 	for i := 0; i < length; i++ {
-	  password = append(password, chars[rand.Intn(len(chars))]) 
+		password = append(password, chars[rand.Intn(len(chars))])
 	}
-	
+
 	return string(password)
-  }
+}
 
 func init() {
 	rootCmd.AddCommand(kbotCmd)
