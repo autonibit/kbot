@@ -1,6 +1,6 @@
 APP := $(shell basename $(shell git remote get-url origin))
 BUILD_DIR = build
-REGISTRY := europe-west3-docker.pkg.dev/devops-kuber-2023/default-repo
+REGISTRY ?= europe-west3-docker.pkg.dev/devops-kuber-2023/default-repo
 VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
 CURRENT_DIST = $(subst /, , $(word 4, $(shell go version))) # the current dist in format: linux arm64
 TARGETOS = $(word 1, $(CURRENT_DIST))
