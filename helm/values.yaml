@@ -7,7 +7,7 @@ image:
   #repository: europe-west3-docker.pkg.dev/devops-kuber-2023/default-repo
   repository: ghcr.io/autonibit
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.0.3-d4a5419"
+  tag: "v1.0.3-1195848"
   os: linux
   arch: amd64
 secret:
