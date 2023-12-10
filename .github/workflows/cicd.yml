@@ -1,6 +1,9 @@
 name: kbot-cicd
 
-on: push
+on:
+  push:
+    branches:
+      - develop
 
 env:
   TARGETOS: linux

@@ -21,3 +21,7 @@ t.me/autonibit_bot
 
 
 ![Screenshot from 2023-11-13 20-51-22](https://github.com/autonibit/kbot/assets/150580646/71f6b172-3168-4852-9956-be101d8348f8)
+
+
+### Workflow
+![workfow](img/workflow.png)
